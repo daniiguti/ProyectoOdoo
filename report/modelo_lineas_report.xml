@@ -1,0 +1,33 @@
+<odoo>
+    <record id="gestion_clientes.linea_report" model="ir.actions.report">
+        <field name="name"> Informe de Lineas</field>
+        <field name="model">gestion_clientes.linea</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_clientes.linea_report_view</field>
+        <field name="report_file">gestion_clientes.linea_report</field>
+        <field name="binding_model_id" ref="model_gestion_clientes_linea"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="linea_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Linea</h1><br />
+                <t t-foreach="docs" t-as="linea">
+                    <ul>
+                        <li>    id linea <span t-field="linea.name" /></li>
+                        <li>    cantidad <span t-field="linea.cantidad" /></li>
+			<li>    precio <span t-field="linea.precio" /></li>
+                        <li>    subtotal <span t-field="linea.subtotal" /></li>
+			<li>    factura <span t-field="linea.id_linea" /></li>
+			<li>    productos <span t-field="linea.ids_productos" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+

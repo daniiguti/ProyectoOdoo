@@ -1,0 +1,31 @@
+<odoo>
+    <record id="gestion_clientes.producto_report" model="ir.actions.report">
+        <field name="name"> Informe de productos</field>
+        <field name="model">gestion_clientes.producto</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_clientes.producto_report_view</field>
+        <field name="report_file">gestion_clientes.producto_report</field>
+        <field name="binding_model_id" ref="model_gestion_clientes_producto"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="producto_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Productos</h1><br />
+                <t t-foreach="docs" t-as="producto">
+                    <ul>
+                        <li>    id producto <span t-field="producto.name" /></li>
+                        <li>    stock <span t-field="producto.stock" /></li>
+			<li>    descripcion <span t-field="producto.descripcion" /></li>
+                        <li>    linea <span t-field="producto.id_producto" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+

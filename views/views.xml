@@ -1,0 +1,106 @@
+<odoo>
+  <data>
+	
+<!-- vistas del articulo(para que salga al principio una lista de los objetos que hemos creado) -->
+<record model ="ir.ui.view" id="gestion_clientes.cliente_list_view">
+	<field name="name">gestion_clientes.cliente.view.tree</field>
+	<field name="model">gestion_clientes.cliente</field>
+ 	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="nombre"/>
+			<field name="apellidos"/>
+			<field name="email"/>
+			<field name="telefono"/>
+			<field name="fecha_nacimiento"/>
+			<field name="edad"/>
+			<field name="ids_facturas"/>
+		</tree>
+	</field>
+</record>
+
+
+<!-- búsqueda(lupa) -->
+<record model ="ir.ui.view" id="gestion_clientes.cliente_search_view">
+	<field name="name">gestion_clientes.cliente.view.search</field>
+	<field name="model">gestion_clientes.cliente</field>
+ 	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="nombre"/>
+			<field name="apellidos"/>
+			<field name="email"/>
+			<field name="telefono"/>
+			<field name="fecha_nacimiento"/>
+			<field name="edad"/>
+			<field name="ids_facturas"/>
+		</search>
+	</field>
+</record>
+
+
+<!-- formulario(lo que aparece para crear un objeto) -->
+<record model ="ir.ui.view" id="gestion_clientes.cliente_form_view">
+	<field name="name">gestion_clientes.cliente.view.form</field>
+	<field name="model">gestion_clientes.cliente</field>
+ 	<field name="arch" type="xml">
+		<form string="Información del cliente">
+			<sheet>
+				<div class="oe_title">
+					<h1>
+						DNI <field name="name" placeholder="DNI"/>
+					</h1>
+					<h1>
+						Nombre <field name="nombre" placeholder="Nombre"/>
+					</h1>
+					<h1>
+						Apellidos <field name="apellidos" placeholder="Apellidos"/>
+					</h1>
+					<h1>
+						Email <field name="email" placeholder="Email"/>
+					</h1>
+					<h1>
+						Telefono <field name="telefono" placeholder="Telefono"/>
+					</h1>
+					<h1>
+						Fecha Nacimiento <field name="fecha_nacimiento" placeholder="Fecha"/>
+					</h1>
+					<h1>
+						Edad <field name="edad" placeholder="Edad"/>
+					</h1>
+					<h1>
+						Factura <field name="ids_facturas" placeholder="Id Factura"/>
+					</h1>
+				</div>
+			</sheet>
+		</form>
+	</field>
+</record>
+
+
+<!-- Calendario, para que aparezca un calendario en el formulario, en el campo de la fecha de nacimiento -->
+<record model ="ir.ui.view" id="gestion_clientes.cliente_calendar_view">
+	<field name="name">gestion_clientes.cliente.view.calendar</field>
+	<field name="model">gestion_clientes.cliente</field>
+ 	<field name="arch" type="xml">
+		<calendar string="Fecha de nacimiento" date_start="fecha_nacimiento" mode="month">
+			<field name="fecha_nacimiento"/>
+		</calendar>
+	</field>
+</record>
+
+
+<!-- menu -->
+<record model="ir.actions.act_window" id="gestion_clientes.cliente_action_window">
+	<field name="name">Clientes</field>
+	<field name="res_model">gestion_clientes.cliente</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="gestion_clientes" id="gestion_clientes.menu_root"/>
+<menuitem name="Clientes" id="gestion_clientes.menu_cliente" parent="gestion_clientes.menu_root"/>
+<menuitem name="list" id="gestion_clientes.menu_cliente_list" parent="gestion_clientes.menu_cliente" action="gestion_clientes.cliente_action_window"/>
+<menuitem name="gestion_clientes" id="gestion_clientes.menu_root" web_icon="gestion_clientes,static/description/icon.png" />
+
+  </data>
+</odoo>

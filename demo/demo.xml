@@ -1,0 +1,57 @@
+<odoo>
+    <data>
+	<!--cliente-->
+          <record id="object0" model="gestion_clientes.cliente">
+            <field name="name">776585233G</field>
+            <field name="nombre">Juan</field>
+	    <field name="apellidos">Alberto Lopez</field>
+	    <field name="telefono">657898762</field>
+	    <field name="email">ejemplo@email.com</field>
+	    <field name="fecha_nacimiento">2003-05-26</field>
+	    <field name="edad">19</field>
+          </record>
+
+        <!--facturas-->
+  	<record id="object1" model="gestion_clientes.factura">
+            <field name="name">224D</field>
+            <field name="importe_total">245</field>
+          </record>
+	<record id="object2" model="gestion_clientes.factura">
+            <field name="name">341P</field>
+            <field name="importe_total">145</field>
+          </record>
+
+	<!--lineas-->
+	<record id="object3" model="gestion_clientes.linea">
+            <field name="name">1</field>
+            <field name="cantidad">2</field>
+	    <field name="precio">50</field>
+            <field name="subtotal">100</field>
+          </record>
+	<record id="object4" model="gestion_clientes.linea">
+            <field name="name">2</field>
+            <field name="cantidad">1</field>
+	    <field name="precio">100</field>
+            <field name="subtotal">100</field>
+          </record>
+	<record id="object5" model="gestion_clientes.linea">
+            <field name="name">3</field>
+            <field name="cantidad">1</field>
+	    <field name="precio">45</field>
+            <field name="subtotal">45</field>
+          </record>
+
+	<!--productos-->
+	<record id="object6" model="gestion_clientes.producto">
+            <field name="name">A</field>
+            <field name="stock">100</field>
+	    <field name="descripcion">placa base</field>
+          </record>
+
+	<record id="object7" model="gestion_clientes.producto">
+            <field name="name">B</field>
+            <field name="stock">80</field>
+	    <field name="descripcion">memoria ram</field>
+          </record>
+    </data>
+</odoo>

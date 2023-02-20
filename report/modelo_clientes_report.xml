@@ -1,0 +1,35 @@
+<odoo>
+    <record id="gestion_clientes.cliente_report" model="ir.actions.report">
+        <field name="name"> Informe de clientes</field>
+        <field name="model">gestion_clientes.cliente</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">gestion_clientes.cliente_report_view</field>
+        <field name="report_file">gestion_clientes.cliente_report</field>
+        <field name="binding_model_id" ref="model_gestion_clientes_cliente"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <template id="cliente_report_view">
+        <t t-call="web.html_container">
+            <!-- muestra datos de la empresa (salta página) -->
+            <t t-call="web.external_layout">
+                <h1>Clientes</h1><br />
+                <t t-foreach="docs" t-as="cliente">
+                    <ul>
+                        <li>    dni <span t-field="cliente.name" /></li>
+                        <li>    nombre <span t-field="cliente.nombre" /></li>
+			<li>    apellidos <span t-field="cliente.apellidos" /></li>
+                        <li>    teléfono <span t-field="cliente.telefono" /></li>
+                        <li>    email <span t-field="cliente.email" /></li>
+			<li>    fecha_nacimiento <span t-field="cliente.fecha_nacimiento" /></li>
+			<li>    edad <span t-field="cliente.edad" /></li>
+			<li>    facturas <span t-field="cliente.ids_facturas" /></li>
+                    </ul>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
+

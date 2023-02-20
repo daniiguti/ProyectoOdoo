@@ -1,0 +1,73 @@
+<odoo>
+  <data>
+	
+<!-- vistas del articulo(para que salga al principio una lista de los objetos que hemos creado) -->
+<record model ="ir.ui.view" id="gestion_clientes.factura_list_view">
+	<field name="name">gestion_clientes.factura.view.tree</field>
+	<field name="model">gestion_clientes.factura</field>
+ 	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="importe_total"/>
+			<field name="id_factura"/>
+			<field name="ids_lineas"/>
+		</tree>
+	</field>
+</record>
+
+
+<!-- búsqueda(lupa) -->
+<record model ="ir.ui.view" id="gestion_clientes.factura_search_view">
+	<field name="name">gestion_clientes.factura.view.search</field>
+	<field name="model">gestion_clientes.factura</field>
+ 	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="importe_total"/>
+			<field name="id_factura"/>
+			<field name="ids_lineas"/>
+		</search>
+	</field>
+</record>
+
+
+<!-- formulario(lo que aparece para crear un objeto) -->
+<record model ="ir.ui.view" id="gestion_clientes.factura_form_view">
+	<field name="name">gestion_clientes.factura.view.form</field>
+	<field name="model">gestion_clientes.factura</field>
+ 	<field name="arch" type="xml">
+		<form string="Información de la factura">
+			<sheet>
+				<div class="oe_title">
+					<h1>
+						ID Factura <field name="name" placeholder="id factura"/>
+					</h1>
+					<h1>
+						Importe total <field name="importe_total" placeholder="importe total"/>
+					</h1>
+					<h1>
+						cliente <field name="id_factura" placeholder="cliente"/>
+					</h1>
+					<h1>
+						productos <field name="ids_lineas" placeholder="lineas"/>
+					</h1>
+				</div>
+			</sheet>
+		</form>
+	</field>
+</record>
+
+
+<!-- menu -->
+<record model="ir.actions.act_window" id="gestion_clientes.factura_action_window">
+	<field name="name">Facturas</field>
+	<field name="res_model">gestion_clientes.factura</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="gestion_clientes" id="gestion_clientes.menu_root"/>
+<menuitem name="Facturas" id="gestion_clientes.menu_factura" parent="gestion_clientes.menu_root"/>
+<menuitem name="list" id="gestion_clientes.menu_factura_list" parent="gestion_clientes.menu_factura" action="gestion_clientes.factura_action_window"/>
+
+  </data>
+</odoo>

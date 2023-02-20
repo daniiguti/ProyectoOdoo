@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+	
+<!-- vistas del articulo(para que salga al principio una lista de los objetos que hemos creado) -->
+<record model ="ir.ui.view" id="gestion_clientes.linea_list_view">
+	<field name="name">gestion_clientes.linea.view.tree</field>
+	<field name="model">gestion_clientes.linea</field>
+ 	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="cantidad"/>
+			<field name="precio"/>
+			<field name="subtotal"/>	
+			<field name="id_linea"/>
+			<field name="ids_productos"/>
+		</tree>
+	</field>
+</record>
+
+
+<!-- búsqueda(lupa) -->
+<record model ="ir.ui.view" id="gestion_clientes.linea_search_view">
+	<field name="name">gestion_clientes.linea.view.search</field>
+	<field name="model">gestion_clientes.linea</field>
+ 	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="cantidad"/>
+			<field name="precio"/>
+			<field name="subtotal"/>	
+			<field name="id_linea"/>
+			<field name="ids_productos"/>
+		</search>
+	</field>
+</record>
+
+
+<!-- formulario(lo que aparece para crear un objeto) -->
+<record model ="ir.ui.view" id="gestion_clientes.linea_form_view">
+	<field name="name">gestion_clientes.linea.view.form</field>
+	<field name="model">gestion_clientes.linea</field>
+ 	<field name="arch" type="xml">
+		<form string="Información de la linea">
+			<sheet>
+				<div class="oe_title">
+					<h1>
+						ID Linea <field name="name" placeholder="id linea"/>
+					</h1>
+					<h1>
+						cantidad <field name="cantidad" placeholder="cantidad de productos"/>
+					</h1>
+					<h1>
+						precio <field name="precio" placeholder="precio de producto"/>
+					</h1>
+					<h1>
+						subtotal <field name="subtotal" placeholder="subtotal de linea"/>
+					</h1>
+					<h1>
+						factura <field name="id_linea" placeholder="factura"/>
+					</h1>
+					<h1>
+						productos <field name="ids_productos" placeholder="productos"/>
+					</h1>
+				</div>
+			</sheet>
+		</form>
+	</field>
+</record>
+
+
+<!-- menu -->
+<record model="ir.actions.act_window" id="gestion_clientes.linea_action_window">
+	<field name="name">Lineas</field>
+	<field name="res_model">gestion_clientes.linea</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="gestion_clientes" id="gestion_clientes.menu_root"/>
+<menuitem name="Lineas" id="gestion_clientes.menu_linea" parent="gestion_clientes.menu_root"/>
+<menuitem name="list" id="gestion_clientes.menu_linea_list" parent="gestion_clientes.menu_linea" action="gestion_clientes.linea_action_window"/>
+
+  </data>
+</odoo>

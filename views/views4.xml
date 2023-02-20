@@ -1,0 +1,73 @@
+<odoo>
+  <data>
+	
+<!-- vistas del articulo(para que salga al principio una lista de los objetos que hemos creado) -->
+<record model ="ir.ui.view" id="gestion_clientes.producto_list_view">
+	<field name="name">gestion_clientes.producto.view.tree</field>
+	<field name="model">gestion_clientes.producto</field>
+ 	<field name="arch" type="xml">
+		<tree>
+			<field name="name"/>
+			<field name="stock"/>
+			<field name="descripcion"/>
+			<field name="id_producto"/>	
+		</tree>
+	</field>
+</record>
+
+
+<!-- búsqueda(lupa) -->
+<record model ="ir.ui.view" id="gestion_clientes.producto_search_view">
+	<field name="name">gestion_clientes.producto.view.search</field>
+	<field name="model">gestion_clientes.producto</field>
+ 	<field name="arch" type="xml">
+		<search>
+			<field name="name"/>
+			<field name="stock"/>
+			<field name="descripcion"/>
+			<field name="id_producto"/>
+		</search>
+	</field>
+</record>
+
+
+<!-- formulario(lo que aparece para crear un objeto) -->
+<record model ="ir.ui.view" id="gestion_clientes.producto_form_view">
+	<field name="name">gestion_clientes.producto.view.form</field>
+	<field name="model">gestion_clientes.producto</field>
+ 	<field name="arch" type="xml">
+		<form string="Información del producto">
+			<sheet>
+				<div class="oe_title">
+					<h1>
+						ID Producto <field name="name" placeholder="id producto"/>
+					</h1>
+					<h1>
+						stock <field name="stock" placeholder="stock de productos"/>
+					</h1>
+					<h1>
+						descripcion <field name="descripcion" placeholder="descripcion de producto"/>
+					</h1>
+					<h1>
+						linea <field name="id_producto" placeholder="linea"/>
+					</h1>
+				</div>
+			</sheet>
+		</form>
+	</field>
+</record>
+
+
+<!-- menu -->
+<record model="ir.actions.act_window" id="gestion_clientes.producto_action_window">
+	<field name="name">Productos</field>
+	<field name="res_model">gestion_clientes.producto</field>
+	<field name="view_mode">tree,form</field>
+</record>
+
+<menuitem name="gestion_clientes" id="gestion_clientes.menu_root"/>
+<menuitem name="Productos" id="gestion_clientes.menu_producto" parent="gestion_clientes.menu_root"/>
+<menuitem name="list" id="gestion_clientes.menu_producto_list" parent="gestion_clientes.menu_producto" action="gestion_clientes.producto_action_window"/>
+
+  </data>
+</odoo>

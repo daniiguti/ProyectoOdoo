@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+	<data>
+		<record model="ir.module.category" id="gestion_clientes.module_category_gestion_clientes">
+			<field name="name">Gestion de clientes</field>
+			<field name="description">Ejemplo gestion</field>
+			<field name="sequence">100</field>
+		</record>
+		<record model="res.groups" id="group_gestion_clientes_usuario">
+			<field name="name">Usuario</field>
+			<field name="category_id" ref="gestion_clientes.module_category_gestion_clientes"></field>
+			<field name="comment">Usuarios Lectura</field>
+		</record>	
+		<record model="res.groups" id="group_gestion_clientes_administrador">
+			<field name="name">Administrador</field>
+			<field name="category_id" ref="gestion_clientes.module_category_gestion_clientes"></field>
+			<field name="comment">Administrador r/w</field>
+			<field name="implied_ids" eval="[(4, ref('group_gestion_clientes_usuario'))]"/>
+			<field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+		</record>
+	</data>	
+</odoo>	
